@@ -12,8 +12,33 @@ body {
   --secondary-text-color: #5c5c62;
   --durability-text-color: #6a737d9c;
   --icon-color: #6a737d;
-  --border-color: #ff9a0045;
-  --text-decoration-color: #ff9a00;
+  --border-color: #0096FF;
+  --text-decoration-color: #0047AB;
+}
+
+h1::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+h1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+h1::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: hsl(200 100% 80%);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+h1 {
+  position: relative;
 }
 
 .container {
@@ -63,6 +88,10 @@ body {
 .contact-info__sub-header {
   color: var(--secondary-text-color);
   margin-bottom: 30px;
+}
+
+.contact-info__sub-header:hover {
+  font-size: 1.5rem;
 }
 
 .contact-info__block {
@@ -240,6 +269,32 @@ body {
 
 .additional-info__languages-item {
   color: var(--secondary-text-color);
+}
+
+.realm {
+  text-align: center;
+}
+
+.realm img {
+  width: 200px;
+}
+
+.hover-rotate img {
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+
+.hover-rotate:hover img {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 576px) {
